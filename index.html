@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Hot Boys Fire &amp; Elevator | 24/7 Fire Alarm Services | Austin &amp; Central Texas</title>
+  <meta name="description" content="24/7 emergency fire alarm service in Austin and Central Texas. NICET-certified technicians for fire alarm inspections, installation, troubleshooting, repair, monitoring, and fire extinguisher service. Texas ACR-3558363.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red: #C8161D;
+      --red-dark: #A01117;
+      --charcoal: #4E4E4E;
+      --charcoal-dark: #333333;
+      --gray-bg: #F3F3F3;
+      --text: #2B2B2B;
+      --muted: #5E5E5E;
+      --line: #DDDDDD;
+      --white: #FFFFFF;
+      --max: 1140px;
+      --head: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+      --body: "Open Sans", "Helvetica Neue", Arial, sans-serif;
+      box-sizing: border-box;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+    *, *::before, *::after { box-sizing: inherit; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body { margin: 0; font-family: var(--body); font-size: 1rem; line-height: 1.7; color: var(--text); background: var(--white); }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+      outline: 3px solid #F2B705; outline-offset: 2px;
+    }
+    img, svg { max-width: 100%; }
+    .container { width: min(var(--max), calc(100% - 48px)); margin: 0 auto; }
+    h1, h2, h3 { font-family: var(--head); line-height: 1.2; margin: 0; color: var(--charcoal-dark); }
+    h2 { font-size: clamp(1.8rem, 3.4vw, 2.4rem); font-weight: 800; }
+    h3 { font-size: 1.1rem; font-weight: 700; }
+    p { margin: 0; }
+    .rule { width: 70px; height: 4px; background: var(--red); margin: 16px 0 22px; border: 0; }
+    .center { text-align: center; }
+    .center .rule { margin-left: auto; margin-right: auto; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 50px; padding: 0 28px; border-radius: 3px;
+      font-family: var(--head); font-weight: 700; font-size: .95rem;
+      text-decoration: none; border: 2px solid transparent; cursor: pointer;
+      transition: background-color .15s ease, color .15s ease;
+    }
+    .btn-red { background: var(--red); color: #fff; }
+    .btn-red:hover { background: var(--red-dark); }
+    .btn-outline { border-color: var(--charcoal); color: var(--charcoal); background: transparent; }
+    .btn-outline:hover { background: var(--charcoal); color: #fff; }
+    .buttons { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    /* Scrolling top banner */
+    .ticker { background: var(--charcoal-dark); color: #fff; overflow: hidden; white-space: nowrap; font-family: var(--head); font-weight: 600; font-size: .9rem; }
+    .ticker-track { display: inline-flex; animation: scroll 32s linear infinite; padding: 9px 0; }
+    .ticker-track span { padding: 0 28px; }
+    .ticker-track span::before { content: ""; display: inline-block; width: 8px; height: 8px; background: var(--red); border-radius: 50%; margin-right: 14px; vertical-align: middle; }
+    @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* Header */
+    header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: #fff; box-shadow: 0 1px 0 var(--line), 0 4px 14px rgba(0,0,0,.05); }
+    .nav { min-height: 80px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-name { font-family: var(--head); font-weight: 800; font-size: 1.2rem; line-height: 1.05; color: var(--charcoal-dark); }
+    .logo-name small { display: block; font-weight: 600; font-size: .72rem; color: var(--red); margin-top: 3px; }
+    nav ul { list-style: none; display: flex; align-items: center; gap: 30px; margin: 0; padding: 0; font-family: var(--head); font-weight: 600; font-size: .95rem; }
+    nav a { text-decoration: none; color: var(--charcoal); }
+    nav a:hover { color: var(--red); }
+    .nav-call { background: var(--red); color: #fff !important; padding: 10px 16px; border-radius: 3px; white-space: nowrap; }
+    .nav-call:hover { background: var(--red-dark); }
+
+    /* Hero */
+    .hero { padding: 70px 0; background: linear-gradient(180deg, #fff 0%, var(--gray-bg) 100%); }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center; }
+    .hero-img { border-radius: 4px; overflow: hidden; box-shadow: 0 18px 40px rgba(0,0,0,.18); line-height: 0; }
+    .hero-img img { display: block; width: 100%; height: auto; }
+    .hero h1 { font-size: clamp(2rem, 4vw, 2.9rem); font-weight: 800; }
+    .hero p { color: var(--muted); font-size: 1.08rem; margin-bottom: 28px; }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 26px; font-weight: 600; font-size: .92rem; color: var(--charcoal); }
+    .hero-badges span { display: inline-flex; align-items: center; gap: 7px; }
+    .hero-badges svg { flex: none; }
+
+    /* Emergency band */
+    .emergency { background: var(--red); color: #fff; padding: 26px 0; }
+    .emergency-row { display: flex; align-items: center; justify-content: space-between; gap: 16px 30px; flex-wrap: wrap; }
+    .emergency h2 { color: #fff; font-size: clamp(1.25rem, 2.4vw, 1.6rem); }
+    .emergency p { opacity: .92; }
+    .emergency .btn { background: #fff; color: var(--red); }
+    .emergency .btn:hover { background: var(--charcoal-dark); color: #fff; }
+
+    section { padding: 84px 0; }
+    .lead { color: var(--muted); max-width: 760px; font-size: 1.05rem; }
+    .center .lead { margin: 0 auto; }
+
+    /* Services tiles */
+    .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 48px; }
+    .tile { background: #fff; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; text-align: left; }
+    .tile-img { aspect-ratio: 16 / 10; display: grid; place-items: center; background: var(--charcoal); line-height: 0; }
+    .tile-img.alt { background: var(--red); }
+    .tile-img svg { width: 42%; height: auto; }
+    .tile-body { padding: 22px 22px 26px; }
+    .tile-body h3 { margin-bottom: 8px; }
+    .tile-body p { color: var(--muted); font-size: .96rem; }
+    .services-cta { margin-top: 44px; }
+
+    /* Who we serve */
+    .serve { background: var(--gray-bg); }
+    .serve-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 44px; }
+    .serve-grid .serve-item { flex: 0 1 calc(25% - 12px); min-width: 200px; text-align: left; }
+    .serve-item { background: #fff; border-left: 4px solid var(--red); padding: 18px 20px; font-family: var(--head); font-weight: 700; color: var(--charcoal-dark); }
+
+    /* About */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .about p + p { margin-top: 14px; }
+    .about p { color: var(--muted); }
+    .quote-box { background: var(--charcoal); color: #fff; padding: 34px; border-radius: 4px; margin-top: 30px; }
+    .quote-box p { color: #fff !important; font-family: var(--head); font-weight: 700; font-size: 1.25rem; line-height: 1.45; }
+    .quote-box span { display: block; margin-top: 14px; color: #D5D5D5; font-size: .92rem; }
+    .creds { border: 1px solid var(--line); border-radius: 4px; }
+    .cred { display: flex; gap: 16px; padding: 22px 24px; border-bottom: 1px solid var(--line); }
+    .cred:last-child { border-bottom: 0; }
+    .cred-icon { width: 44px; height: 44px; flex: none; border-radius: 50%; background: var(--red); display: grid; place-items: center; }
+    .cred h3 { margin-bottom: 4px; }
+    .cred p { font-size: .95rem; }
+    .makers { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .makers span { background: var(--gray-bg); border: 1px solid var(--line); padding: 5px 12px; border-radius: 3px; font-size: .88rem; font-weight: 600; color: var(--charcoal-dark); }
+
+    /* Service area */
+    .area { background: var(--gray-bg); }
+    .cities { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 36px; }
+    .cities span { background: #fff; border: 1px solid var(--line); padding: 10px 20px; border-radius: 3px; font-family: var(--head); font-weight: 700; color: var(--charcoal-dark); }
+
+    /* Contact */
+    .contact { background: var(--charcoal); color: #fff; }
+    .contact h2, .contact h3 { color: #fff; }
+    .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 60px; align-items: start; }
+    .contact-info { list-style: none; margin: 0; padding: 0; }
+    .contact-info li { padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,.18); }
+    .contact-info .label { display: block; font-family: var(--head); font-weight: 700; font-size: .9rem; color: #FF8A8E; margin-bottom: 2px; }
+    .contact-info a { text-decoration: none; font-size: 1.15rem; font-weight: 600; }
+    .contact-info a:hover { text-decoration: underline; }
+    .contact-info .big a { font-family: var(--head); font-size: 1.7rem; font-weight: 800; }
+    form { background: #fff; color: var(--text); border-radius: 4px; padding: 32px; }
+    form h3 { color: var(--charcoal-dark); margin-bottom: 18px; font-size: 1.3rem; }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    label { display: block; font-weight: 600; font-size: .9rem; margin-bottom: 14px; color: var(--charcoal-dark); }
+    input, select, textarea {
+      display: block; width: 100%; margin-top: 5px; padding: 12px 13px;
+      font: inherit; font-weight: 400; color: var(--text);
+      border: 1px solid #C9C9C9; border-radius: 3px; background: #fff;
+    }
+    textarea { min-height: 120px; resize: vertical; }
+    form .btn { width: 100%; }
+    .form-note { font-size: .85rem; color: var(--muted); margin-top: 12px; text-align: center; }
+
+    footer { background: var(--charcoal-dark); color: #CFCFCF; padding: 30px 0; font-size: .9rem; }
+    .footer-row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px 30px; }
+    footer a { text-decoration: none; }
+    footer a:hover { color: #fff; text-decoration: underline; }
+
+    @media (max-width: 980px) {
+      .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .tiles { grid-template-columns: repeat(2, 1fr); }
+      .serve-grid .serve-item { flex-basis: calc(50% - 8px); }
+      nav li:not(.keep) { display: none; }
+      .hero-copy { order: -1; }
+    }
+    @media (max-width: 600px) {
+      .container { width: calc(100% - 32px); }
+      section { padding: 60px 0; }
+      .hero { padding: 44px 0; }
+      .tiles, .row { grid-template-columns: 1fr; }
+      .serve-grid .serve-item { flex-basis: 100%; }
+      .logo-name { font-size: 1rem; }
+      .logo-name small { display: none; }
+      .buttons .btn { width: 100%; }
+      form { padding: 24px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .ticker-track { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="ticker" aria-label="24/7 emergency fire alarm service. Call or text 512-934-8933.">
+  <div class="ticker-track" aria-hidden="true">
+    <span>24/7 Emergency Fire Alarm Service</span><span>Call or Text 512-934-8933</span><span>Same-Day or Next-Day Response</span><span>NICET Certified</span><span>Texas ACR-3558363</span>
+    <span>24/7 Emergency Fire Alarm Service</span><span>Call or Text 512-934-8933</span><span>Same-Day or Next-Day Response</span><span>NICET Certified</span><span>Texas ACR-3558363</span>
+  </div>
+</div>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="#top" aria-label="Hot Boys Fire & Elevator home">
+      <svg width="40" height="44" viewBox="0 0 40 44" aria-hidden="true">
+        <path d="M20 1c2 8 13 13 13 25a13 13 0 0 1-26 0c0-6 3-10 6-12.5.4 3.6 2.2 6.2 4.6 7.3C16.5 14 18 7 20 1z" fill="#C8161D"/>
+        <path d="M20 22c.9 3.4 6 5.6 6 10.4a6 6 0 0 1-12 0c0-2.4 1.2-4 2.5-5 .3 1.6 1 2.6 2 3 0-3 .6-5.8 1.5-8.4z" fill="#fff"/>
+      </svg>
+      <span class="logo-name">Hot Boys Fire &amp; Elevator<small>Fire Alarm Services</small></span>
+    </a>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="#top">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="keep"><a class="nav-call" href="tel:15129348933">512-934-8933</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-img">
+        <img src="images/hero.jpg" width="1536" height="1024" alt="Hot Boys Fire &amp; Elevator technician shaking hands with a building manager in front of a Notifier fire alarm panel">
+      </div>
+      <div class="hero-copy">
+        <h1>24/7 Emergency Fire Alarm Service in Central Texas</h1>
+        <hr class="rule">
+        <p>
+          Fire alarm trouble doesn't wait for business hours, and neither do we.
+          Call or text any time and we can be on site the same day or the next. NICET-certified
+          technicians who troubleshoot and repair your system instead of just recommending replacement.
+        </p>
+        <div class="buttons">
+          <a class="btn btn-red" href="tel:15129348933">Call or Text 512-934-8933</a>
+          <a class="btn btn-outline" href="#contact">Contact Us for a Quote</a>
+        </div>
+        <div class="hero-badges">
+          <span><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="#C8161D"/><path d="M5 9.3l2.6 2.5L13 6.4" stroke="#fff" stroke-width="2" fill="none"/></svg>Texas ACR-3558363</span>
+          <span><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="#C8161D"/><path d="M5 9.3l2.6 2.5L13 6.4" stroke="#fff" stroke-width="2" fill="none"/></svg>NICET Certified</span>
+          <span><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="#C8161D"/><path d="M5 9.3l2.6 2.5L13 6.4" stroke="#fff" stroke-width="2" fill="none"/></svg>Manufacturer Certified</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="emergency">
+    <div class="container emergency-row">
+      <div>
+        <h2>Panel in trouble or alarm right now?</h2>
+        <p>Call or text for same-day or next-day emergency service, 24 hours a day.</p>
+      </div>
+      <a class="btn" href="tel:15129348933">Call or Text Now</a>
+    </div>
+  </div>
+
+  <section id="services" class="center">
+    <div class="container">
+      <h2>Our Fire Alarm Services</h2>
+      <hr class="rule">
+      <p class="lead">
+        Hot Boys Fire &amp; Elevator provides complete commercial fire alarm service, from routine
+        annual inspections to the hard-to-find troubles other companies couldn't track down.
+      </p>
+
+      <div class="tiles">
+        <article class="tile">
+          <div class="tile-img"><svg viewBox="0 0 80 80" aria-hidden="true"><rect x="16" y="10" width="48" height="62" rx="4" fill="#fff"/><rect x="28" y="5" width="24" height="12" rx="3" fill="#C8161D"/><path d="M26 32l5 5 9-10M26 50l5 5 9-10" stroke="#C8161D" stroke-width="4" fill="none" stroke-linecap="round"/><rect x="45" y="31" width="12" height="4" rx="2" fill="#4E4E4E"/><rect x="45" y="49" width="12" height="4" rx="2" fill="#4E4E4E"/></svg></div>
+          <div class="tile-body"><h3>Fire Alarm Inspections</h3><p>Commercial inspections that identify system troubles, deficiencies, and failed devices so you stay compliant.</p></div>
+        </article>
+        <article class="tile">
+          <div class="tile-img alt"><svg viewBox="0 0 80 80" aria-hidden="true"><rect x="6" y="8" width="68" height="8" rx="2" fill="#fff" opacity=".5"/><path d="M14 16h52v10a26 16 0 0 1-52 0z" fill="#fff"/><circle cx="40" cy="28" r="6" fill="#C8161D"/><circle cx="56" cy="23" r="2" fill="#35C759"/><path d="M24 50q16 10 32 0M28 58q12 7 24 0" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7"/></svg></div>
+          <div class="tile-body"><h3>Fire Alarm Installation</h3><p>New installations, system upgrades, device installation, testing, and project support.</p></div>
+        </article>
+        <article class="tile">
+          <div class="tile-img"><svg viewBox="0 0 80 80" aria-hidden="true"><rect x="18" y="8" width="36" height="56" rx="5" fill="#F2B705"/><rect x="23" y="14" width="26" height="14" rx="2" fill="#2B2B2B"/><text x="36" y="25" text-anchor="middle" font-family="Arial" font-weight="700" font-size="9" fill="#35C759">24.0</text><circle cx="36" cy="44" r="9" fill="#2B2B2B"/><path d="M36 44l5-5" stroke="#fff" stroke-width="2"/><path d="M28 64v8M44 64l14 10" stroke="#C8161D" stroke-width="3" stroke-linecap="round"/></svg></div>
+          <div class="tile-body"><h3>Troubleshooting &amp; Repair</h3><p>Ground faults, wiring problems, failed devices, communication issues, and intermittent troubles.</p></div>
+        </article>
+        <article class="tile">
+          <div class="tile-img alt"><svg viewBox="0 0 80 80" aria-hidden="true"><rect x="12" y="10" width="56" height="60" rx="4" fill="#fff"/><rect x="20" y="18" width="40" height="14" rx="2" fill="#2B2B2B"/><rect x="24" y="23" width="22" height="4" rx="1" fill="#35C759"/><circle cx="24" cy="42" r="3.5" fill="#35C759"/><circle cx="36" cy="42" r="3.5" fill="#F2B705"/><circle cx="48" cy="42" r="3.5" fill="#C8161D"/><rect x="20" y="52" width="40" height="10" rx="2" fill="#DDD"/></svg></div>
+          <div class="tile-body"><h3>Fire Alarm Monitoring</h3><p>Monitoring that makes sure your system reports alarm and trouble conditions when it matters most.</p></div>
+        </article>
+        <article class="tile">
+          <div class="tile-img"><svg viewBox="0 0 80 80" aria-hidden="true"><rect x="28" y="22" width="24" height="52" rx="8" fill="#C8161D"/><rect x="34" y="12" width="12" height="10" fill="#fff"/><path d="M46 14h12l6 8" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M32 16h-8" stroke="#fff" stroke-width="4" stroke-linecap="round"/><rect x="31" y="38" width="18" height="16" rx="2" fill="#fff"/><circle cx="40" cy="46" r="4" fill="#35C759"/></svg></div>
+          <div class="tile-body"><h3>Fire Extinguisher Service</h3><p>Commercial extinguisher inspections and service to find and correct deficiencies.</p></div>
+        </article>
+        <article class="tile">
+          <div class="tile-img alt"><svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="42" r="26" fill="none" stroke="#fff" stroke-width="5"/><path d="M40 26v17l11 7" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/><text x="40" y="14" text-anchor="middle" font-family="Montserrat, Arial" font-weight="800" font-size="11" fill="#fff">24/7</text></svg></div>
+          <div class="tile-body"><h3>24/7 Emergency Service</h3><p>Call or text any time, day or night. On site the same day or the next.</p></div>
+        </article>
+      </div>
+
+      <div class="services-cta"><a class="btn btn-red" href="#contact">Request Service</a></div>
+    </div>
+  </section>
+
+  <section class="serve center">
+    <div class="container">
+      <h2>Who We Serve</h2>
+      <hr class="rule">
+      <p class="lead">Fire alarm service for the buildings where people work, stay, eat, learn, and gather.</p>
+      <div class="serve-grid">
+        <div class="serve-item">Commercial Buildings</div>
+        <div class="serve-item">Hotels</div>
+        <div class="serve-item">Restaurants</div>
+        <div class="serve-item">Schools</div>
+        <div class="serve-item">Churches</div>
+        <div class="serve-item">Property Management Companies</div>
+        <div class="serve-item">Building Owners</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="container about-grid">
+      <div>
+        <h2>Technicians, Not Salesmen</h2>
+        <hr class="rule">
+        <p>
+          When a fire alarm system acts up, a lot of companies quote a new panel. We start by finding out
+          what's actually wrong. We troubleshoot the system, track down the real cause, and repair it
+          whenever repair is the right call.
+        </p>
+        <p>
+          We work directly with building owners and property managers, explain what we found in plain
+          terms, and do the work without unnecessary upselling.
+        </p>
+        <div class="quote-box">
+          <p>“We're technicians, not salesmen. We actually troubleshoot the systems instead of just recommending replacement.”</p>
+          <span>Tom, Hot Boys Fire &amp; Elevator</span>
+        </div>
+      </div>
+
+      <div class="creds">
+        <div class="cred">
+          <div class="cred-icon"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M11 1l8 3v6c0 5-3.4 9-8 11-4.6-2-8-6-8-11V4z" fill="#fff"/></svg></div>
+          <div><h3>Texas ACR-3558363</h3><p>Registered fire alarm company with the Texas State Fire Marshal's Office.</p></div>
+        </div>
+        <div class="cred">
+          <div class="cred-icon"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="8" r="6" fill="#fff"/><path d="M7 13l-2 8 6-3 6 3-2-8" fill="#fff"/></svg></div>
+          <div><h3>NICET Certified</h3><p>Nationally recognized certification in fire alarm systems.</p></div>
+        </div>
+        <div class="cred">
+          <div class="cred-icon"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><rect x="3" y="3" width="16" height="16" rx="2" fill="#fff"/><circle cx="8" cy="11" r="2" fill="#C8161D"/><circle cx="14" cy="11" r="2" fill="#C8161D"/></svg></div>
+          <div>
+            <h3>Manufacturer Certified</h3>
+            <p>We service and repair the panel you already have.</p>
+            <div class="makers">
+              <span>Silent Knight</span><span>Fire-Lite</span><span>Notifier</span><span>Gamewell</span><span>Simplex</span><span>Potter</span><span>Bosch</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="area center">
+    <div class="container">
+      <h2>Our Service Area</h2>
+      <hr class="rule">
+      <p class="lead">Serving Austin and the surrounding Central Texas area.</p>
+      <div class="cities">
+        <span>Georgetown</span><span>Round Rock</span><span>Austin</span><span>Cedar Park</span><span>Pflugerville</span><span>Bastrop</span><span>Surrounding Central Texas</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container contact-grid">
+      <div>
+        <h2>Contact Information</h2>
+        <hr class="rule">
+        <ul class="contact-info">
+          <li class="big"><span class="label">Call or Text, 24/7</span><a href="tel:15129348933">512-934-8933</a></li>
+          <li><span class="label">Email</span><a href="mailto:Tom@h-boys.com">Tom@h-boys.com</a></li>
+          <li><span class="label">Service Area</span>Austin, Georgetown, Round Rock, Cedar Park, Pflugerville, Bastrop, and surrounding Central Texas</li>
+          <li><span class="label">License</span>Texas ACR-3558363</li>
+        </ul>
+      </div>
+
+      <form id="quote-form" novalidate>
+        <h3>Request a Quote</h3>
+        <div class="row">
+          <label>First Name<input name="first" autocomplete="given-name" required></label>
+          <label>Last Name<input name="last" autocomplete="family-name"></label>
+        </div>
+        <div class="row">
+          <label>Email<input type="email" name="email" autocomplete="email"></label>
+          <label>Phone<input type="tel" name="phone" autocomplete="tel"></label>
+        </div>
+        <label>Service Needed
+          <select name="service">
+            <option>Emergency Service</option>
+            <option>Fire Alarm Inspection</option>
+            <option>Fire Alarm Installation</option>
+            <option>Troubleshooting / Repair</option>
+            <option>Fire Alarm Monitoring</option>
+            <option>Fire Extinguisher Service</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label>Message<textarea name="message" placeholder="Building address, panel make, and what's going on"></textarea></label>
+        <button class="btn btn-red" type="submit">Send Request</button>
+        <p class="form-note">For emergencies, call or text 512-934-8933 for the fastest response.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <div>© <span id="year">2026</span> Hot Boys Fire &amp; Elevator. Texas ACR-3558363.</div>
+    <div><a href="tel:15129348933">512-934-8933</a> &nbsp;|&nbsp; <a href="mailto:Tom@h-boys.com">Tom@h-boys.com</a></div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  // Opens the visitor's email app with the form filled in, addressed to Tom@h-boys.com
+  document.getElementById('quote-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = this;
+    if (!f.first.value.trim()) { f.first.focus(); return; }
+    var name = (f.first.value + ' ' + f.last.value).trim();
+    var body = 'Name: ' + name + '\nEmail: ' + f.email.value + '\nPhone: ' + f.phone.value +
+               '\nService needed: ' + f.service.value + '\n\n' + f.message.value;
+    window.location.href = 'mailto:Tom@h-boys.com?subject=' +
+      encodeURIComponent(f.service.value + ' request from ' + name) +
+      '&body=' + encodeURIComponent(body);
+  });
+</script>
+</body>
+</html>
