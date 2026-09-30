@@ -158,6 +158,11 @@
     }
     textarea { min-height: 120px; resize: vertical; }
     form .btn { width: 100%; }
+    .hp { position: absolute; left: -9999px; }
+    .form-status { margin-top: 12px; font-weight: 600; text-align: center; }
+    .form-status:empty { display: none; }
+    .form-status.ok { color: #1E7B34; }
+    .form-status.err { color: var(--red); }
     .form-note { font-size: .85rem; color: var(--muted); margin-top: 12px; text-align: center; }
 
     footer { background: var(--charcoal-dark); color: #CFCFCF; padding: 30px 0; font-size: .9rem; }
@@ -405,7 +410,9 @@
           </select>
         </label>
         <label>Message<textarea name="message" placeholder="Building address, panel make, and what's going on"></textarea></label>
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button class="btn btn-red" type="submit">Send Request</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
         <p class="form-note">For emergencies, call or text 512-934-8933 for the fastest response.</p>
       </form>
     </div>
@@ -422,17 +429,39 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
-  // Opens the visitor's email app with the form filled in, addressed to Tom@h-boys.com
+  // Sends the request through FormSubmit, which emails it to Tom@h-boys.com.
+  // If that fails, falls back to opening the visitor's email app.
   document.getElementById('quote-form').addEventListener('submit', function (e) {
     e.preventDefault();
-    var f = this;
-    if (!f.first.value.trim()) { f.first.focus(); return; }
+    var f = this, btn = f.querySelector('button'), status = f.querySelector('.form-status');
+    function say(msg, cls) { status.textContent = msg; status.className = 'form-status ' + cls; }
+    if (!f.first.value.trim()) { say('Please enter your first name.', 'err'); f.first.focus(); return; }
+    if (!f.email.value.trim() && !f.phone.value.trim()) { say('Please enter an email or phone number so Tom can reach you.', 'err'); f.email.focus(); return; }
+    if (f._honey.value) return;
     var name = (f.first.value + ' ' + f.last.value).trim();
-    var body = 'Name: ' + name + '\nEmail: ' + f.email.value + '\nPhone: ' + f.phone.value +
-               '\nService needed: ' + f.service.value + '\n\n' + f.message.value;
-    window.location.href = 'mailto:Tom@h-boys.com?subject=' +
-      encodeURIComponent(f.service.value + ' request from ' + name) +
-      '&body=' + encodeURIComponent(body);
+    var subject = f.service.value + ' request from ' + name;
+    btn.disabled = true; btn.textContent = 'Sending...'; say('', '');
+    var data = {
+      Name: name, Email: f.email.value, Phone: f.phone.value,
+      'Service needed': f.service.value, Message: f.message.value,
+      _subject: subject, _template: 'table'
+    };
+    if (f.email.value.trim()) data._replyto = f.email.value.trim();
+    fetch('https://formsubmit.co/ajax/Tom@h-boys.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function (r) { return r.json(); }).then(function (d) {
+      if (String(d.success) !== 'true') throw new Error(d.message);
+      f.reset();
+      say('Thanks! Your request was sent to Tom. He will get back to you soon.', 'ok');
+    }).catch(function () {
+      say('Sorry, the form could not send. Opening your email app instead.', 'err');
+      var body = 'Name: ' + name + '\nEmail: ' + f.email.value + '\nPhone: ' + f.phone.value +
+                 '\nService needed: ' + f.service.value + '\n\n' + f.message.value;
+      window.location.href = 'mailto:Tom@h-boys.com?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(body);
+    }).finally(function () { btn.disabled = false; btn.textContent = 'Send Request'; });
   });
 </script>
 </body>
